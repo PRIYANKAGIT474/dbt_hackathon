@@ -48,11 +48,7 @@ models:
             tests:
                 - not_null
 
-  
-          - name: Visits
-            description: "Count of distinct encounters by Healthplan_city,Provider_name,Encounter_Doc_Status and Encounter_date"  
 
-         
 
 #    - name: tbl_User_EncounterDetails
 #      description: "User Encounter table dbt model"
