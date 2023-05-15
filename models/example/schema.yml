@@ -1,21 +1,76 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+
+    - name: vw_UserDetails
+      description: "Users view dbt model"
       columns:
-          - name: id
+          - name: User_login_name
             description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+              
+
+          - name: User_FullName
+            description: "Concatination of User_First_name and User_Last_name that is mandatory and cannot be null"
+            tests:
+                - not_null     
+
+    - name: vw_EncounterStatus
+      description: "Encounter view dbt model"
+      columns:
+          - name: Encounter_Id
+            description: "The primary and Unique key for this table"
             tests:
                 - unique
                 - not_null
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
+          - name: Encounter_Doc_Status
+            description: "Encounter statuses"
             tests:
-                - unique
+                - accepted_values:
+                    values: ['Open', 'Ready for Coding Review', 'Finalized Documentation', 'Review Coder Query']
+
+         
+          - name: Provider_login
+            description: "Provider login who created the Encounter"  
+            tests:
                 - not_null
+
+          - name: Encounter_date
+            description: "Date when the encounter was performed by the provider"  
+            tests:
+                - not_null
+
+          - name: HealthPlan_City
+            description: "The HealthPlan_City of Patient"
+            tests:
+                - not_null
+
+
+
+#    - name: tbl_User_EncounterDetails
+#      description: "User Encounter table dbt model"
+ #     columns:
+  #        - name: Encounter_Id
+   #         description: "The primary key for this table"
+    ##        tests:
+      #          - not_null
+
+#    - name: my_first_dbt_model
+#      description: "A starter dbt model"
+#      columns:
+#          - name: id
+#            description: "The primary key for this table"
+#            tests:
+#                - unique
+#                - not_null
+
+#    - name: my_second_dbt_model
+#      description: "A starter dbt model"
+#      columns:
+#          - name: id
+#            description: "The primary key for this table"
+#            tests:
+#                - unique
