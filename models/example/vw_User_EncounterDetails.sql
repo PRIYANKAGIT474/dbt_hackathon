@@ -19,8 +19,8 @@ final as (
         U.User_FullName as Provider_name,
         E.Encounter_Doc_Status as Encounter_Status,
         --DateName( month , DateAdd( month ,month(E.Encounter_date), -1 ) ),
-       --datename(month,E.Encounter_date) as Month_of_Encounter,
-       year(E.Encounter_date) as Month_of_Encounter,
+       dbt_date.month_name(E.Encounter_date) as Month_of_Encounter,
+       --year(E.Encounter_date) as Month_of_Encounter,
        --convert(char(3), [E.Encounter_date], 0),
         Count(distinct E.Encounter_Id) as No_of_Encounters
 
