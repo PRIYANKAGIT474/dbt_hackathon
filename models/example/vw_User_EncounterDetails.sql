@@ -18,8 +18,12 @@ final as (
         E.Provider_login,
         U.User_FullName as Provider_name,
         E.Encounter_Doc_Status as Encounter_Status,
-       datename(month,E.Encounter_date) as Month_of_Encounter,
+        E.Encounter_date as Encounter_Date,
+        --DateName( month , DateAdd( month ,month(E.Encounter_date), -1 ) ),
+       --dbt_date.month(E.Encounter_date) as Month_of_Encounter,
+       --year(E.Encounter_date) as Month_of_Encounter,
        --convert(char(3), [E.Encounter_date], 0),
+       --{{ dbt_date.month_name(E.Encounter_date) }} as month_short_name,
         Count(distinct E.Encounter_Id) as No_of_Encounters
 
     from Encounters E
