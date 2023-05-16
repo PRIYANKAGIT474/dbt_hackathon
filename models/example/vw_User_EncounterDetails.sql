@@ -18,7 +18,9 @@ final as (
         E.Provider_login,
         U.User_FullName as Provider_name,
         E.Encounter_Doc_Status as Encounter_Status,
-       Month(E.Encounter_date,Month) as Month_of_Encounter,
+       --Month(E.Encounter_date,Month) as Month_of_Encounter,
+       --convert(char(3), [E.Encounter_date], 0),
+       Convert(varchar(10), E.Encounterdate,101) as Encounter_date,
         Count(distinct E.Encounter_Id) as No_of_Encounters
 
     from Encounters E
