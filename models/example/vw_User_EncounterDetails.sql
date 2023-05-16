@@ -17,9 +17,9 @@ final as (
         E.HealthPlan_City,
         E.Provider_login,
         U.User_FullName as Provider_name,
-        E.Encounter_Doc_Status,
+        E.Encounter_Status,
         E.Encounter_date,
-        Count(distinct E.Encounter_Id) as [No of Encounters]
+        Count(distinct E.Encounter_Id) as No_of_Encounters
 
     from Encounters E
      join Users U ON  E.Provider_login = U.User_login_name
