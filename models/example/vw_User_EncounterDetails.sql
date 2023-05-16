@@ -18,7 +18,7 @@ final as (
         E.Provider_login,
         U.User_FullName as Provider_name,
         E.Encounter_Doc_Status as Encounter_Status,
-       Month(E.Encounter_date) as Month_of_Encounter,
+       Month(E.Encounter_date,MM) as Month_of_Encounter,
         Count(distinct E.Encounter_Id) as No_of_Encounters
 
     from Encounters E
