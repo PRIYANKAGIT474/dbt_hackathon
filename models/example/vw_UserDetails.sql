@@ -4,7 +4,7 @@ with final as (
 
     select UM.User_login_name,concat(UM.User_First_Name , ' ' , UM.User_Last_Name) as User_FullName
     from USER_Master UM
-    join Mongo_Users_Roles MUR on MUR.Username=UM.User_login_name
+    join Mongo_Users_Roles MUR on MUR.Username=Concat('LANDMARKHEALTH\\' ,'',UM.User_login_name)
     
 
 )
