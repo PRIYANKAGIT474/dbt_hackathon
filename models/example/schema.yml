@@ -13,7 +13,7 @@ models:
               
 
           - name: User_FullName
-            description: "Concatination of User_First_name and User_Last_name that is mandatory and cannot be null"
+            description: "Concatenation of User_First_name and User_Last_name that is mandatory and cannot be null"
             tests:
                 - not_null     
 
