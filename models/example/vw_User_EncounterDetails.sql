@@ -18,7 +18,8 @@ final as (
         E.Provider_login,
         U.User_FullName as Provider_name,
         E.Encounter_Doc_Status as Encounter_Status,
-        year(E.Encounter_date) as Year_of_encounter,
+        E.Encounter_date as Encounter_Date,
+        --year(E.Encounter_date) as Year_of_encounter,
         Count(distinct E.Encounter_Id) as No_of_Encounters
 
     from Encounters E
